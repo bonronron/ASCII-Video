@@ -19,7 +19,7 @@ getASCIIFromPixelVectorised = np.vectorize(getASCIIFromPixel)
 # converts it to a string and returns that string
 def turnASCII(cap):
     grayscale = cv2.cvtColor(cap, cv2.COLOR_BGR2GRAY)
-    grayscale = cv2.resize(gray, (0,0), fx = 0.3, fy = 0.1)
+    grayscale = cv2.resize(grayscale, (0,0), fx = 0.3, fy = 0.1)
     ASCIIArray = getASCIIFromPixelVectorised(grayscale)
     ASCIIString = ""
     for char in ASCIIArray:
@@ -35,7 +35,6 @@ def turnASCII(cap):
 def update():
     global label
     ret,frame = cap.read()
-    print("got frame")
     label['text'] = turnASCII(frame)
     win.after(5, update)
 
