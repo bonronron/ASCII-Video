@@ -7,7 +7,7 @@ density = ".'`^,:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*&@#MW"
 # function getASCIIFromPixel maps the values of intensity of pixel [0,255] to a range of the density list.
 # It then finds the ASCII character to replace the pixel with and returns the character.
 def getASCIIFromPixel(x):
-    return density[int(np.interp(x,[0,255],[0,len(density)]))]
+    return density[int(np.interp(x,[0,255],[0,len(density)-1]))]
 
 # Since the function is to be used on a nparray, the function is vectorized to getASCIIFromPixelVectorised
 getASCIIFromPixelVectorised = np.vectorize(getASCIIFromPixel)
